@@ -8,10 +8,13 @@
 помощью модуля collections, используя collections.Counter
 """
 
+from collections import Counter
+
 
 def common_and_longest(text: str) -> tuple:
-    common = None
-    longest = None
+    words_count = Counter(text.split())
+    common = words_count.most_common()[0][0]
+    longest = max(words_count, key=len)
     return common, longest
 
 
